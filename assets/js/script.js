@@ -184,9 +184,15 @@ document.addEventListener("DOMContentLoaded", () => {
   linkDatosPagoMenu?.addEventListener("click", (e) => toggleTransferencia(e, true));
   btnCerrarTransferencia?.addEventListener("click", () => toggleTransferencia(null, false));
   btnCopiarDatos?.addEventListener("click", () => {
-    const info = "Banco: Mercado Pago\nN° de Cuenta: 1019481756\nTitular: Vivian Roa Tapia";
-    navigator.clipboard.writeText(info).then(() => alert("✅ Copiado."));
-  });
+    const lineas = modalTransferencia.querySelectorAll("p"); 
+    const textoACopiar = Array.from(lineas)
+        .map(p => p.innerText)
+        .join("\n");
+
+    navigator.clipboard.writeText(textoACopiar)
+        .then(() => alert("✅ Todos los datos copiados."))
+        .catch(err => alert("❌ Error al copiar: " + err));
+});
 
   //Google calendar
 const hoy = new Date();
@@ -217,6 +223,7 @@ if (btnAgendar) {
 });
 
 });
+
 
 
 

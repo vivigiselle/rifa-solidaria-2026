@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //Google calendar
 const hoy = new Date();
-const fechaSorteo = new Date(2026, 2, 9); // 9 de marzo (mes empieza en 0)
+const fechaSorteo = new Date(2026,2,9); // 9 de marzo (mes empieza en 0)
 const diasRestantes = Math.ceil(
   (fechaSorteo - hoy) / (1000 * 60 * 60 * 24)
 );
@@ -218,6 +218,7 @@ if (btnAgendar) {
 });
 
 });
+
 
 
 
